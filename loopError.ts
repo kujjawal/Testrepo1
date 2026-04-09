@@ -13,7 +13,7 @@ function demonstrateLoopError(): void {
 function demonstrateLoopErrorDecrement(): void {
   for (let i = 5; i > 0; j--) {
     let y = 0;
-    console.log(i); // i is never incremented, creating an infinite loop
+    console.log(i); // i is never decremented, creating an infinite loop
   }
 }
 
@@ -28,7 +28,6 @@ function anotherLoopError(): void {
 }
 
  for (let skip = 0; true; skip += pageSize) {
-This loop's stop condition tests "" but the incrementer updates "skip".
             try {
                 const response = await new Promise<any>((resolve, reject) => {
                     this.teamService.teamSearchV4({}, {}, fields, skip, pageSize, {}).subscribe({
