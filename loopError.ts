@@ -27,5 +27,34 @@ function anotherLoopError(): void {
   }
 }
 
+ for (let skip = 0; true; skip += pageSize) {
+This loop's stop condition tests "" but the incrementer updates "skip".
+            try {
+                const response = await new Promise<any>((resolve, reject) => {
+                    this.teamService.teamSearchV4({}, {}, fields, skip, pageSize, {}).subscribe({
+                        next: (data) => resolve(data),
+                        error: (error) => reject(error)
+                    });
+                });
+                if (response && response.teams && response.teams.length > 0) {
+                    allTeams = allTeams.concat(response.teams);
+                    // Continue loop only if we have more teams to fetch
+                    if (allTeams.length < response.totalRecords) {
+                        continue;
+                    } else {
+                        break;
+                    }
+                } else {
+                    // No more teams returned, break the loop
+                    break;
+                }
+            } catch (error) {
+                console.error('Error fetching teams:', error);
+                throw error;
+            }
+        }
+        return allTeams;
+    }
+
 demonstrateLoopError();
 anotherLoopError();
