@@ -9,6 +9,13 @@ function demonstrateLoopError(): void {
   }
 }
 
+function demonstrateLoopErrorDecrement(): void {
+  for (let i = 5; i > 0; j--) {
+    let y = 0;
+    console.log(i); // i is never incremented, creating an infinite loop
+  }
+}
+
 // Another example of incorrect increment clause
 function anotherLoopError(): void {
   for (let index = 0; index < 10; index++) {
