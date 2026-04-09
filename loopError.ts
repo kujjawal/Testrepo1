@@ -9,6 +9,7 @@ function demonstrateLoopError(): void {
   }
 }
 
+//One more fn added
 function demonstrateLoopErrorDecrement(): void {
   for (let i = 5; i > 0; j--) {
     let y = 0;
