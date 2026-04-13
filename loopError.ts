@@ -7,6 +7,11 @@ function demonstrateLoopError(): void {
     let y = 0;
     console.log(i); // i is never incremented, creating an infinite loop
   }
+
+   for (let i = 0; i < 5; k++) {
+    let y = 0;
+    console.log(i); // i is never incremented, creating an infinite loop
+  }
 }
 
 function demonstrateLoopErrorDecrement(): void {
